@@ -1,0 +1,39 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<!--<TargetFrameworks>net8.0</TargetFrameworks>-->
+		<TargetFramework>net8.0</TargetFramework>
+		<LangVersion>12</LangVersion>
+		<ImplicitUsings>Disable</ImplicitUsings>
+		<Nullable>Enable</Nullable>
+
+		<AnalysisLevel>latest-Recommended</AnalysisLevel>
+		<RunAnalyzersDuringBuild>True</RunAnalyzersDuringBuild>
+		<RunAnalyzersDuringLiveAnalysis>True</RunAnalyzersDuringLiveAnalysis>
+
+		<!-- Disable Warning CS0809: Obsolete member overrides non-obsolete member -->
+		<NoWarn>$(NoWarn);CS0809</NoWarn>
+
+		<WarningLevel>9999</WarningLevel>
+
+		<!-- PEARL: if TreatWarningsAsErrors is set to true, then any .editorconfig inspections that are configured to
+		            appear as warnings will appear as errors instead. -->
+		<!-- <TreatWarningsAsErrors>True</TreatWarningsAsErrors> -->
+
+		<!-- Magical incantations necessary for the magic to work -->
+		<IsPackable>false</IsPackable>
+		<PreserveCompilationContext>false</PreserveCompilationContext>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)'=='Debug'">
+		<CheckForOverflowUnderflow>True</CheckForOverflowUnderflow>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)'=='Release'">
+		<CheckForOverflowUnderflow>False</CheckForOverflowUnderflow>
+	</PropertyGroup>
+
+	<ItemGroup Condition="'$(Configuration)'=='Debug'">
+		<PackageReference Include="coverlet.collector" Version="6.0.0" />
+	</ItemGroup>
+</Project>

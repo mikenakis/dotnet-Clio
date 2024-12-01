@@ -1,0 +1,169 @@
+﻿--------------------------------------------------------------------------------
+T101_No_Optional_Named_Arguments_Help_Audit
+
+Usage:
+    TestApp [-h, --help] <india>
+Options:
+    -h, --help Display this help.
+    <india>    This is the description of india.
+
+--------------------------------------------------------------------------------
+T102_Simple_Help_Audit
+
+Usage:
+    TestApp [<options>] --echo=<echo-parameter> --hotel=<hotel-parameter> <india> [<juliet> [<papa>]]
+Options:
+    -a, --alpha                       This is the description of alpha.
+    -b, --bravo                       See user's manual.
+    -c, --charlie=<charlie-parameter> This is the description of charlie.
+                                      If omitted, the default is "charlie-default".
+    -d, --delta=<delta-parameter>     This is the description of delta.
+    --echo=<echo-parameter>           This is the description of echo.
+    --foxtrot=<foxtrot-parameter>     This is the description of foxtrot.
+                                      If omitted, the default is Value2.
+    --golf=<golf-parameter>           This is the description of golf.
+    --hotel=<hotel-parameter>         This is the description of hotel.
+    --mike[=<string>]                 This is the description of mike.
+                                      If omitted, the default is "mike-default".
+                                      If supplied without a value, the preset is "mike-preset".
+    --november[=<string>]             This is the description of november.
+                                      If omitted, the default is "november-default".
+                                      If supplied without a value, the preset is "november-preset".
+    --oscar[=<string>]                This is the description of oscar.
+                                      If omitted, the default is "oscar-default".
+                                      If supplied without a value, the preset is "oscar-preset".
+    -h, --help                        Display this help.
+    <india>                           This is the description of india.
+    <juliet>                          This is the description of juliet.
+    <papa>                            This is the description of papa.
+Single-letter arguments can be combined. For example, -a -b can be replaced with -ab.
+
+--------------------------------------------------------------------------------
+T103_Option_With_Long_Usage_Help_Audit
+
+Usage:
+    TestApp [<options>] --echo=<rather-lengthy-echo-parameter>
+            --hotel=<rather-lengthy-hotel-parameter>
+Options:
+    -a, --alpha                              This is the description of alpha.
+    --echo=<rather-lengthy-echo-parameter>   This is the description of echo.
+    --hotel=<rather-lengthy-hotel-parameter> This is the description of hotel.
+    --mike[=<string>]                        This is the description of mike,
+                                             which is a very long description in
+                                             order to test word-breaking.
+                                             If omitted, the default is "this is
+                                             mike-default".
+                                             If supplied without a value, the
+                                             preset is "this is mike-preset".
+    -h, --help                               Display this help.
+
+--------------------------------------------------------------------------------
+T104_Root_With_Verbs_Help_Audit
+
+Usage:
+    TestApp [<options>] --echo=<echo-parameter> [juliet [kilo]] <subcommand> ...
+Options:
+    -a, --alpha             This is the description of alpha.
+    --echo=<echo-parameter> This is the description of echo.
+    -h, --help              Display this help.
+Where <subcommand> is one of:
+    juliet                  This is the description of juliet.
+    kilo                    This is the description of kilo.
+Try 'TestApp <subcommand> --help' for more information on a specific subcommand.
+
+--------------------------------------------------------------------------------
+T105_Verb_Help_Audit
+
+Usage:
+    TestApp juliet [<options>] [<papa>]
+Options:
+    --lima     This is the description of lima.
+    -h, --help Display this help.
+    <papa>     This is the description of papa.
+
+--------------------------------------------------------------------------------
+T106_Argument_Dump_Audit
+
+alpha = True
+bravo = False
+charlie = "charlie-default"
+delta = null
+echo = "echo-value"
+foxtrot = Value3
+golf = null
+hotel = Value2
+india = "india-preset"
+juliet = "juliet-default"
+kilo = "kilo-value"
+help = False
+lima = "lima-value"
+mike = True
+mike.november = True
+mike.oscar = False
+mike.help = False
+mike.papa = "papa-value"
+mike.quebec = "quebec-default"
+mike.romeo = null
+
+--------------------------------------------------------------------------------
+T107_Argument_Supplied_More_Than_Once_Is_Caught
+
+Argument 'alpha' supplied more than once.
+Try 'TestApp --help' for more information.
+
+--------------------------------------------------------------------------------
+T108_Option_Value_Not_Supplied_Is_Caught
+
+Option 'alpha' was supplied without a value, but it requires a value.
+Try 'TestApp --help' for more information.
+
+--------------------------------------------------------------------------------
+T109_Required_Option_Not_Supplied_Is_Caught
+
+Required argument 'alpha' was not supplied.
+Try 'TestApp --help' for more information.
+
+--------------------------------------------------------------------------------
+T110_Required_Positional_Not_Supplied_Is_Caught
+
+Required argument 'alpha' was not supplied.
+Try 'TestApp --help' for more information.
+
+--------------------------------------------------------------------------------
+T111_Unparsable_Option_Value_Is_Caught
+
+'Unparsable' is not a valid value for argument 'alpha'.
+Because: Expected one of (Value1, Value2, Value3), found 'Unparsable'
+Try 'TestApp --help' for more information.
+
+--------------------------------------------------------------------------------
+T112_Unparsable_Positional_Value_Is_Caught
+
+'X' is not a valid value for argument 'alpha'.
+Because: Expected an integer, found 'X'
+Try 'TestApp --help' for more information.
+
+--------------------------------------------------------------------------------
+T113_Unexpected_Token_Is_Caught
+
+Unexpected token: 'unexpected'.
+Try 'TestApp --help' for more information.
+
+--------------------------------------------------------------------------------
+T114_Unknown_Single_Letter_Name_Is_Caught
+
+Unexpected token: '-c'.
+Try 'TestApp --help' for more information.
+
+--------------------------------------------------------------------------------
+T115_Non_String_Option_Value_Cannot_Be_Empty
+
+'' is not a valid value for argument 'alpha'.
+Because: Expected an integer, found ''
+Try 'TestApp --help' for more information.
+
+--------------------------------------------------------------------------------
+T116_Missing_Verb_Is_Caught
+
+Expected a subcommand.
+Try 'TestApp --help' for more information.
