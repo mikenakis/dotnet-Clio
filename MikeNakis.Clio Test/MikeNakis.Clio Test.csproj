@@ -1,0 +1,46 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<!--<TargetFrameworks>net8.0</TargetFrameworks>-->
+		<TargetFramework>net8.0</TargetFramework>
+		<LangVersion>12</LangVersion>
+		<ImplicitUsings>Disable</ImplicitUsings>
+		<Nullable>Enable</Nullable>
+
+		<AnalysisLevel>latest-Recommended</AnalysisLevel>
+		<RunAnalyzersDuringBuild>True</RunAnalyzersDuringBuild>
+		<RunAnalyzersDuringLiveAnalysis>True</RunAnalyzersDuringLiveAnalysis>
+
+		<WarningLevel>9999</WarningLevel>
+
+		<!-- PEARL: if TreatWarningsAsErrors is set to true, then any .editorconfig inspections that are configured to 
+		            appear as warnings will appear as errors instead. -->
+		<!-- <TreatWarningsAsErrors>True</TreatWarningsAsErrors> -->
+
+		<!-- Magical incantations necessary for the magic to work -->
+		<IsPackable>false</IsPackable>
+		<PreserveCompilationContext>false</PreserveCompilationContext>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<!-- Testing project-specific stuff -->
+		<CheckForOverflowUnderflow>True</CheckForOverflowUnderflow>
+		<IsTestProject>true</IsTestProject>
+		<IsTestingPlatformApplication>false</IsTestingPlatformApplication>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="coverlet.collector" Version="6.0.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.10.0" />
+		<PackageReference Include="MSTest.TestAdapter" Version="3.6.2" />
+		<PackageReference Include="MSTest.TestFramework" Version="3.6.2" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\MikeNakis.Clio\MikeNakis.Clio.csproj" />
+	</ItemGroup>
+
+</Project>
