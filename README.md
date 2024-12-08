@@ -236,7 +236,7 @@ _**Verb**_: A special kind of argument which is identified by a word and has an 
 ## Notes
 
 - `Clio` was created before `System.CommandLine` was made available by Microsoft. `Clio` is more powerful and easier to use than `System.CommandLine`.
-- According to "Build Awesome Command-Line Applications in Ruby 2" a switch doesn't take arguments, while a flag does. Their idea of both switch and flag is retarded. By long-established practice, a flag is boolean, so it is synonymous to a switch. Furthermore, a boolean is either true or false, and this can be signified by the presence or absence of the argument in the command-line, so it does not make sense to say that a switch or a flag takes arguments.
+- According to "Build Awesome Command-Line Applications in Ruby 2" a switch doesn't take arguments, while a flag does. Their idea of both switch and flag is retarded. By long-established practice, a flag is boolean, so it is synonymous to a switch. Furthermore, the true or false value of a boolean can be signified by the presence or absence of the argument in the command-line, so it does not make sense to say that a switch or a flag takes arguments.
 
 ---------------
 
